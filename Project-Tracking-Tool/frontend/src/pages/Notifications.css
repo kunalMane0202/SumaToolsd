@@ -1,0 +1,17 @@
+/* Notifications page and top-bar bell */
+.notif-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.notif {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 12px 14px; border: 1px solid rgba(128, 128, 128, 0.25); border-left-width: 4px; border-radius: 8px;
+}
+.notif--danger { border-left-color: #c62828; }
+.notif--warning { border-left-color: #ef6c00; }
+.notif--info { border-left-color: #1565c0; }
+.notif--success { border-left-color: #2e7d32; }
+.notif.is-read { opacity: 0.6; }
+.notif__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1 1 240px; overflow-wrap: anywhere; }
+.notif__actions { display: flex; gap: 6px; }
+.bell-badge {
+  display: inline-block; min-width: 20px; margin-left: 6px; padding: 0 6px; border-radius: 10px;
+  background: #c62828; color: #fff; font-size: 12px; line-height: 20px; text-align: center;
+}

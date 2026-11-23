@@ -1,0 +1,39 @@
+/* Extra design tokens used by the redesigned pages. Loaded after the other dashboard styles. */
+:root {
+  --surface-2: #f6f2e8;
+  --field-bg: #ffffff;
+  --shadow-sm: 0 1px 2px rgba(48, 45, 40, 0.06);
+  --shadow-md: 0 8px 24px rgba(48, 45, 40, 0.1);
+  --shadow-lg: 0 24px 60px rgba(30, 28, 24, 0.28);
+  --overlay: rgba(24, 22, 18, 0.48);
+  --focus-ring: 0 0 0 3px rgba(7, 143, 232, 0.25);
+}
+.shell.theme-dark {
+  --surface-2: #1b2638;
+  --field-bg: #0f1828;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.6);
+  --overlay: rgba(2, 6, 14, 0.66);
+  --focus-ring: 0 0 0 3px rgba(96, 165, 250, 0.35);
+}
+
+/* Readable text tones for pills on soft backgrounds (light mode needs darker ink than the accent). */
+:root { --amber-text: #7d5400; --green-text: #0a6b49; --coral-text: #b02a18; --teal-text: #0668ad; }
+.shell.theme-dark { --amber-text: var(--amber); --green-text: var(--green); --coral-text: var(--coral); --teal-text: var(--teal); }
+
+/* Dark variants for legacy badges, tags and Bootstrap light helpers */
+.shell.theme-dark .text-bg-light, .shell.theme-dark .bg-light { background-color: var(--surface-2) !important; color: var(--ink) !important; }
+.shell.theme-dark .border { border-color: var(--line) !important; }
+.shell.theme-dark .tag--on-track, .shell.theme-dark .project-status--on-track { background: var(--teal-soft); color: var(--teal); }
+.shell.theme-dark .tag--completed, .shell.theme-dark .project-status--completed { background: var(--green-soft); color: var(--green); }
+.shell.theme-dark .tag--at-risk, .shell.theme-dark .project-status--at-risk { background: var(--amber-soft); color: var(--amber); }
+.shell.theme-dark .tag--delayed { background: var(--coral-soft); color: var(--coral); }
+.shell.theme-dark .project-status--delayed { background: var(--coral-soft); color: var(--coral); }
+.shell.theme-dark .project-status--default { background: var(--surface-2); color: var(--ink-soft); }
+.shell.theme-dark .priority-badge--low, .shell.theme-dark .task-status--done, .shell.theme-dark .ticket-status--resolved, .shell.theme-dark .ticket-status--closed { background: var(--green-soft); color: var(--green); }
+.shell.theme-dark .priority-badge--medium, .shell.theme-dark .task-status--todo, .shell.theme-dark .ticket-status--open { background: var(--teal-soft); color: var(--teal); }
+.shell.theme-dark .priority-badge--high, .shell.theme-dark .task-status--active, .shell.theme-dark .ticket-status--active, .shell.theme-dark .ticket-status--pending { background: var(--amber-soft); color: var(--amber); }
+.shell.theme-dark .priority-badge--critical { background: var(--coral-soft); color: var(--coral); }
+.shell.theme-dark .priority-badge--default, .shell.theme-dark .task-status--default, .shell.theme-dark .ticket-status--default { background: var(--surface-2); color: var(--ink-soft); }
+.shell.theme-dark .reports-kpi, .shell.theme-dark .reports-card, .shell.theme-dark .reports-intro { background: var(--surface); }

@@ -1,0 +1,14 @@
+# secrets
+.env
+.env.*
+!.env.example
+# dependencies / build output
+node_modules/
+dist/
+target/
+# editor / OS
+.idea/
+.vscode/*
+!.vscode/tasks.json
+.DS_Store
+*.log

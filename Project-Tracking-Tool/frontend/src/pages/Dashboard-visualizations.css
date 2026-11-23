@@ -1,0 +1,626 @@
+
+/* ==========================================
+   OPSVISTA - DASHBOARD VISUALIZATIONS
+========================================== */
+
+.dashboard-visuals {
+  --chart-text: #26364d;
+  --chart-muted: #718096;
+  --chart-grid: #e8edf4;
+  --chart-border: #e2e8f0;
+  --chart-tooltip-bg: #ffffff;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  width: 100%;
+  margin: 0 0 24px;
+  animation: dashboard-fade-up 0.6s ease both;
+}
+
+/* ==========================================
+   CHART PANELS
+========================================== */
+
+.visual-panel {
+  min-width: 0;
+  overflow: visible;
+  padding: 22px;
+  border-radius: 16px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.visual-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(30, 50, 80, 0.08);
+}
+
+.visual-panel--wide {
+  grid-column: 1 / -1;
+}
+
+.visual-panel__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.visual-panel__heading h2 {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.visual-panel__heading p {
+  margin: 5px 0 0;
+  color: var(--muted, #718096);
+  font-size: 0.82rem;
+}
+
+/* ==========================================
+   CHART CONTAINERS
+========================================== */
+
+.visual-chart {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+.visual-chart--donut {
+  width: 100%;
+  height: 270px;
+  min-height: 270px;
+}
+
+.visual-chart--bar {
+  width: 100%;
+  height: 310px;
+  min-height: 310px;
+}
+
+/* Recharts container sizing */
+
+.visual-chart .recharts-responsive-container {
+  width: 100% !important;
+  min-width: 0;
+}
+
+.visual-chart .recharts-wrapper {
+  max-width: 100%;
+}
+
+.visual-chart .recharts-surface {
+  overflow: visible;
+}
+
+.visual-chart .recharts-sector {
+  visibility: visible;
+}
+
+.visual-chart .recharts-legend-item-text {
+  color: var(--chart-text) !important;
+}
+
+.visual-chart .recharts-tooltip-wrapper {
+  z-index: 10;
+  outline: none;
+}
+
+.visual-chart .recharts-default-tooltip {
+  border-radius: 10px;
+}
+
+/* ==========================================
+   PROJECT STATUS CSS DONUT CHART
+========================================== */
+
+.project-css-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 35px;
+
+  width: 100%;
+  min-height: 270px;
+  height: auto;
+  padding: 15px 10px;
+}
+
+/* Donut outer circle */
+
+.project-donut {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 190px;
+  height: 190px;
+  min-width: 190px;
+
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  animation: donut-appear 0.8s ease-out both;
+}
+
+/* Donut inner circle */
+
+.project-donut::after {
+  content: "";
+
+  position: absolute;
+  inset: 39px;
+
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+/* Donut center content */
+
+.project-donut__center {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.project-donut__center strong {
+  color: #172033;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-donut__center span {
+  margin-top: 4px;
+  color: #718096;
+  font-size: 12px;
+}
+
+/* Project status legend */
+
+.project-donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 140px;
+}
+
+.project-donut-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: var(--chart-text);
+  font-size: 13px;
+}
+
+.project-donut-legend__item strong {
+  margin-left: auto;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-donut-legend__dot {
+  display: inline-block;
+
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+
+  border-radius: 50%;
+}
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.visual-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 230px;
+  padding: 24px;
+
+  text-align: center;
+  color: var(--chart-muted);
+}
+
+.visual-empty__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+  margin-bottom: 12px;
+
+  border-radius: 14px;
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+
+  font-size: 24px;
+}
+
+.visual-empty p {
+  max-width: 280px;
+  margin: 0;
+
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   DASHBOARD STATISTICS
+========================================== */
+
+.stat {
+  transition:
+  transform 0.25s ease,
+  box-shadow 0.25s ease,
+  background 0.25s ease;
+}
+
+.stat__value span {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat:hover {
+  transform: translateY(-3px);
+}
+
+/* ==========================================
+   DARK MODE
+========================================== */
+
+.shell.theme-dark .dashboard-visuals {
+  --chart-text: var(--ink);
+  --chart-muted: var(--ink-soft);
+  --chart-grid: var(--line);
+  --chart-border: var(--line);
+  --chart-tooltip-bg: var(--surface);
+}
+
+.shell.theme-dark .visual-panel {
+  background: var(--surface) !important;
+  border-color: var(--line) !important;
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+}
+
+.shell.theme-dark .visual-panel:hover {
+  box-shadow: var(--shadow-card);
+}
+
+.shell.theme-dark .visual-panel__heading h2 {
+  color: var(--ink) !important;
+}
+
+.shell.theme-dark .visual-panel__heading p {
+  color: var(--ink-soft) !important;
+}
+
+.shell.theme-dark .visual-empty {
+  color: var(--ink-soft);
+}
+
+.shell.theme-dark .visual-empty__icon {
+  background: var(--teal-soft);
+  color: var(--teal);
+}
+
+/* Recharts dark mode */
+
+.shell.theme-dark .visual-chart .recharts-legend-item-text {
+  fill: var(--ink) !important;
+  color: var(--ink) !important;
+}
+
+.shell.theme-dark .visual-chart .recharts-cartesian-axis-tick-value {
+  fill: var(--ink-soft) !important;
+}
+
+.shell.theme-dark .visual-chart .recharts-cartesian-axis-line,
+.shell.theme-dark .visual-chart .recharts-cartesian-axis-tick-line {
+  stroke: var(--line);
+}
+
+.shell.theme-dark .visual-chart .recharts-cartesian-grid line {
+  stroke: var(--line);
+}
+
+.shell.theme-dark .visual-chart .recharts-tooltip-cursor {
+  fill: rgba(148, 163, 184, 0.12);
+}
+
+/* CSS donut dark mode */
+
+.shell.theme-dark .project-donut::after {
+  background: var(--surface);
+}
+
+.shell.theme-dark .project-donut__center strong {
+  color: var(--ink);
+}
+
+.shell.theme-dark .project-donut__center span {
+  color: var(--ink-soft);
+}
+
+.shell.theme-dark .project-donut-legend__item {
+  color: var(--ink);
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes dashboard-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes donut-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 900px) {
+  .dashboard-visuals {
+    gap: 16px;
+  }
+
+  .visual-panel {
+    padding: 18px;
+  }
+
+  .project-css-chart {
+    gap: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-visuals {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .visual-panel--wide {
+    grid-column: auto;
+  }
+
+  .visual-chart--donut {
+    height: 250px;
+    min-height: 250px;
+  }
+
+  .visual-chart--bar {
+    height: 280px;
+    min-height: 280px;
+  }
+
+  .visual-panel {
+    padding: 16px;
+  }
+
+  .project-css-chart {
+    gap: 20px;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-visuals,
+  .visual-panel,
+  .stat,
+  .project-donut {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+
+/* ==========================================
+   TASK DISTRIBUTION AND WORKLOAD FIX
+========================================== */
+
+/* Donut charts */
+.project-css-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 35px;
+  width: 100%;
+  min-height: 270px;
+  padding: 15px 10px;
+}
+
+.project-donut {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 190px;
+  height: 190px;
+  min-width: 190px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.project-donut::after {
+  content: "";
+  position: absolute;
+  inset: 39px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.project-donut__center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.project-donut__center strong {
+  color: #172033;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.project-donut__center span {
+  margin-top: 4px;
+  color: #718096;
+  font-size: 12px;
+}
+
+.project-donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 140px;
+}
+
+.project-donut-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--chart-text);
+  font-size: 13px;
+}
+
+.project-donut-legend__item strong {
+  margin-left: auto;
+}
+
+.project-donut-legend__dot {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  border-radius: 50%;
+}
+
+/* Team workload bars */
+.visual-workload {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+  padding: 15px 5px;
+}
+
+.visual-workload__item {
+  width: 100%;
+}
+
+.visual-workload__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 9px;
+  color: var(--chart-text);
+  font-size: 13px;
+}
+
+.visual-workload__name {
+  font-weight: 600;
+}
+
+.visual-workload__top strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.visual-workload__track {
+  width: 100%;
+  height: 12px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #e8edf4;
+}
+
+.visual-workload__fill {
+  height: 100%;
+  min-width: 3px;
+  border-radius: 20px;
+}
+
+.shell.theme-dark .project-donut::after {
+  background: #1d2b40;
+}
+
+.shell.theme-dark .project-donut__center strong {
+  color: #edf3fc;
+}
+
+.shell.theme-dark .project-donut__center span {
+  color: #a8b6c9;
+}
+
+.shell.theme-dark .project-donut-legend__item {
+  color: #e5edf8;
+}
+
+.shell.theme-dark .visual-workload__track {
+  background: #34445c;
+}
+
+.shell.theme-dark .visual-workload__top {
+  color: #e5edf8;
+}
+
+@media (max-width: 640px) {
+  .project-css-chart {
+    gap: 20px;
+  }
+
+  .visual-workload {
+    gap: 18px;
+  }
+}

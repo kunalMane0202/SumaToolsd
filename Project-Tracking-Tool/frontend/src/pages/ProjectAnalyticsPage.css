@@ -1,0 +1,305 @@
+.project-analytics-page {
+  display: grid;
+  gap: 18px;
+}
+
+.project-analytics-heading,
+.project-analytics-section-heading,
+.project-analytics-report-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.project-analytics-heading h2 {
+  margin: 6px 0;
+  color: var(--ink);
+  font-size: 1.45rem;
+  letter-spacing: -0.025em;
+}
+
+.project-analytics-eyebrow {
+  color: var(--ink-soft);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+}
+
+.project-analytics-project {
+  display: grid;
+  width: min(320px, 100%);
+  gap: 5px;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.project-analytics-upload,
+.project-analytics-card,
+.project-analytics-history,
+.project-analytics-preview {
+  border-color: var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.project-analytics-upload .card-body,
+.project-analytics-preview .card-body,
+.project-analytics-history .card-body,
+.project-analytics-card .card-body {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+}
+
+.project-analytics-section-heading h3,
+.project-analytics-card__title {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.project-analytics-section-heading p {
+  margin-top: 5px;
+  font-size: 0.78rem;
+}
+
+.project-analytics-upload__controls {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+}
+
+.project-analytics-upload__controls .btn {
+  min-height: 38px;
+  white-space: nowrap;
+}
+
+.project-analytics-help {
+  font-size: 0.72rem;
+}
+
+.project-analytics-columns {
+  display: grid;
+  gap: 8px;
+  color: var(--ink-soft);
+  font-size: 0.76rem;
+}
+
+.project-analytics-columns > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-analytics-preview .alert ul {
+  padding-left: 1.25rem;
+  font-size: 0.78rem;
+}
+
+.project-analytics-preview .alert li + li {
+  margin-top: 3px;
+}
+
+.project-analytics-table-wrap {
+  max-height: 420px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.project-analytics-table-wrap .table {
+  min-width: 700px;
+}
+
+.project-analytics-table-wrap th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--paper);
+  white-space: nowrap;
+}
+
+.project-analytics-table-wrap td {
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-analytics-report {
+  display: grid;
+  gap: 14px;
+}
+
+.project-analytics-report-heading h3 {
+  margin: 5px 0 4px;
+  color: var(--ink);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.project-analytics-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-analytics-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.project-analytics-metric {
+  border-color: var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.project-analytics-metric .card-body {
+  display: grid;
+  gap: 7px;
+  padding: 14px;
+}
+
+.project-analytics-metric span {
+  color: var(--ink-soft);
+  font-size: 0.73rem;
+  font-weight: 600;
+}
+
+.project-analytics-metric strong {
+  color: var(--ink);
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.project-analytics-charts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.project-analytics-breakdown {
+  display: grid;
+  gap: 13px;
+  margin: 0;
+}
+
+.project-analytics-breakdown li {
+  display: grid;
+  gap: 6px;
+}
+
+.project-analytics-breakdown__label {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+}
+
+.project-analytics-breakdown__label span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-analytics-breakdown__label strong {
+  color: var(--ink);
+}
+
+.project-analytics-breakdown .progress {
+  height: 6px;
+  background: var(--paper);
+}
+
+.project-analytics-breakdown .progress-bar {
+  background: var(--teal);
+}
+
+.project-analytics-history .table-primary > * {
+  --bs-table-color: var(--ink);
+  --bs-table-bg: var(--teal-soft);
+  --bs-table-border-color: var(--line);
+}
+
+.project-analytics-sla-rate {
+  color: var(--ink);
+  font-size: 1.6rem;
+}
+
+.project-analytics-sla-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+}
+
+.project-analytics-search {
+  width: min(260px, 100%);
+}
+
+@media (max-width: 900px) {
+  .project-analytics-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .project-analytics-heading,
+  .project-analytics-section-heading,
+  .project-analytics-report-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .project-analytics-upload__controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .project-analytics-charts {
+    grid-template-columns: 1fr;
+  }
+
+  .project-analytics-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media print {
+  @page { margin: 12mm; }
+
+  body,
+  .shell,
+  .main,
+  .content {
+    display: block !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+
+  .sidebar,
+  .topbar,
+  .project-analytics-hide-print {
+    display: none !important;
+  }
+
+  .project-analytics-page {
+    display: block !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .project-analytics-report,
+  .project-analytics-card,
+  .project-analytics-metric {
+    break-inside: avoid;
+  }
+}
